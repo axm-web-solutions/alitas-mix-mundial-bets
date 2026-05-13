@@ -1,15 +1,15 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
+    HeadContent,
+    Link,
+    Outlet,
+    Scripts,
+    createRootRouteWithContext,
+    useRouter,
 } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
 import { Navbar } from "../components/Navbar";
+import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -73,14 +73,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Alitas Mix - Polla Mundial" },
+      { name: "description", content: "Alitas Mix - tu polla del Mundial. Pronostica partidos, guarda la programación y compite por premios." },
+      { name: "author", content: "Alitas Mix" },
+      { property: "og:title", content: "Alitas Mix - Polla Mundial" },
+      { property: "og:description", content: "Alitas Mix - tu polla del Mundial. Pronostica partidos, guarda la programación y compite por premios." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@AlitasMix" },
     ],
     links: [
       {

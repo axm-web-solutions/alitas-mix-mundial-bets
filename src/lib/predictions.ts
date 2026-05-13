@@ -17,20 +17,6 @@ export async function loadUserPredictions(userId: string): Promise<PredictionRow
   return data ?? [];
 }
 
-export async function loadMatchesForDateRange(startDate: string, endDate: string): Promise<MatchRow[]> {
-  const { data, error } = await supabase
-    .from("matches")
-    .select("*")
-    .gte("match_date", startDate)
-    .lte("match_date", endDate);
-
-  if (error) {
-    throw error;
-  }
-
-  return data ?? [];
-}
-
 export async function submitPrediction(
   matchId: string,
   scoreA: number,

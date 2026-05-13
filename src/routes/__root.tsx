@@ -1,15 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
-    HeadContent,
     Link,
     Outlet,
-    Scripts,
     createRootRouteWithContext,
     useRouter,
 } from "@tanstack/react-router";
 
 import { Navbar } from "../components/Navbar";
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -69,45 +66,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alitas Mix - Polla Mundial" },
-      { name: "description", content: "Alitas Mix - tu polla del Mundial. Pronostica partidos, guarda la programación y compite por premios." },
-      { name: "author", content: "Alitas Mix" },
-      { property: "og:title", content: "Alitas Mix - Polla Mundial" },
-      { property: "og:description", content: "Alitas Mix - tu polla del Mundial. Pronostica partidos, guarda la programación y compite por premios." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@AlitasMix" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="es" className="dark">
-      <head>
-        <HeadContent />
-      </head>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -121,3 +83,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+
